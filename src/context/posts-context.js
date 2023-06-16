@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { getAllPostsService } from "../services/postServices";
 import { postsReducer } from "../reducers/posts-reducer";
+import { POSTS } from "../utils/actionTypes";
 
 const PostsContext = createContext(null);
 const initailPosts = { posts: [] };
@@ -10,7 +11,7 @@ export const PostsProvider = ({ children }) => {
     try {
       const { data, status } = await getAllPostsService();
       if (status === 200) {
-        postsDispatch({ type: "POST_INITIALIZE", payload: data?.posts });
+        postsDispatch({ type: POSTS.INITIALISE, payload: data?.posts });
       }
     } catch (err) {
       console.error(err);

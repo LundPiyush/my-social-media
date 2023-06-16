@@ -5,7 +5,7 @@ import userimage from "../../assets/userimage.png";
 const Nav = () => {
   const { authState } = useAuth();
   return (
-    <div className="flex justify-between  sticky top-0">
+    <div className="flex justify-between sticky top-0 z-10 shadow-2xl border-b-2 bg-white">
       <div>left</div>
       {authState?.isLoggedIn && (
         <div>{authState?.user?.firstName + authState?.user?.lastName}</div>
