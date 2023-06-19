@@ -10,27 +10,83 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "Erling Haaland to Manchester City, here we go! Haaland has passed medical tests as new Man City player today, he's back in Dortmund. It will be OFFICIAL this week 🚨🔵 #MCFC Man City told BVB board that they will activate release clause closer to €60m than €75m in few hours.",
     likes: {
-      likeCount: 0,
+      likeCount: 10,
       likedBy: [],
       dislikedBy: [],
     },
-    username: "adarshbalika",
+    username: "fabrizioromano",
+    userUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1687208591/fabrizo_user_w32pz1.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    mediaUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1687189677/erlinghaland_zsfl59.jpg",
+  },
+  {
+    _id: uuid(),
+    content: `There's a blue moon shining on Europe tonight! 🏆#ManCity | #UCLfinal`,
+    likes: {
+      likeCount: 10,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "fabrizioromano",
+    userUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1687208591/fabrizo_user_w32pz1.jpg",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    mediaUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1687208442/haland_ucl_vc4tne.jpg",
+  },
+  {
+    _id: uuid(),
+    content: `@KevinDeBruyne here, how may I assist you?" 📞 Most #UCL assists this season 🅰️ #ManCity | #UCLfinal`,
+    likes: {
+      likeCount: 10,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "Manchester City",
+    userUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1687210465/mancity_logo_ykygdy.jpg",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    mediaUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1687207047/kevin_ucl_vu2gl3.jpg",
   },
   {
     _id: uuid(),
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "We're celebrating our Treble with an open-top bus parade through Manchester city centre tomorrow! 🎉See you all there 🤩",
+    likes: {
+      likeCount: 10,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "Manchester City",
+    userUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1687210465/mancity_logo_ykygdy.jpg",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    mediaUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1687207066/ucl_winners_b1exj5.jpg",
+  },
+  {
+    _id: uuid(),
+    content: `Champions of Europe, you made us sing that! #ManCity | #UCLfinal`,
     likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
-    username: "shubhamsoni",
+    username: "Manchester City",
+    userUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1687210465/mancity_logo_ykygdy.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    mediaUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1687207059/pep_ucl_bc9mec.jpg",
   },
 ];

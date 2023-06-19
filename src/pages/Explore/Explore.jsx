@@ -13,12 +13,14 @@ const Explore = () => {
       <Nav />
       <div className="flex justify-between">
         <Sidebar />
-        <div className="w-[65%] border-2 border-red-600">
+        <div className="flex flex-col gap-0">
           {posts?.map((post) => (
             <Post {...post} key={post._id} />
           ))}
         </div>
-        <div></div>
+        <div className="">
+          <h1>hello</h1>
+        </div>
       </div>
     </>
   );

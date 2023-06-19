@@ -14,5 +14,18 @@ export const users = [
     password: "adarshBalika123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    avatarUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1687208699/userimage_u8ozxc.png",
+  },
+  {
+    _id: uuid(),
+    firstName: "Fabrizio",
+    lastName: "Romano",
+    username: "fabrizioromano",
+    password: "fabrizioromano123",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    avatarUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1687208591/fabrizo_user_w32pz1.jpg",
   },
 ];

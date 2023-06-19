@@ -18,6 +18,7 @@ const Login = () => {
   const loginHandler = (e) => {
     e.preventDefault();
     loginUser(loginDetails);
+    navigate("/");
   };
   const guestLoginHandler = (e) => {
     e.preventDefault();

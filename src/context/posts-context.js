@@ -19,6 +19,7 @@ export const PostsProvider = ({ children }) => {
   };
   useEffect(() => {
     getAllPosts();
+    // eslint-disable-next-line
   }, []);
   return (
     <PostsContext.Provider value={{ postsData }}>
