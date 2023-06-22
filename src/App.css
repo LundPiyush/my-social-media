@@ -30,6 +30,19 @@
 .App-link {
   color: #61dafb;
 }
+::-webkit-scrollbar {
+  width: 8px;
+  padding-top: 10rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a020f0;
+  border-radius: 8px;
+}
 
 @keyframes App-logo-spin {
   from {

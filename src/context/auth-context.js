@@ -61,6 +61,7 @@ export const AuthProvider = ({ children }) => {
       console.log(err.response.data);
     }
   };
+
   return (
     <AuthContext.Provider value={{ loginUser, SignUpUser, authState }}>
       {children}

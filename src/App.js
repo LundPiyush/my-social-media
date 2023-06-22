@@ -7,6 +7,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
 import Explore from "./pages/Explore/Explore";
+import PostDetails from "./pages/PostDetails/PostDetails";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<Home />} />
         <Route path="/explore" element={<Explore />} />
+        <Route path="/post/:postId" element={<PostDetails />} />
       </Routes>
     </div>
   );

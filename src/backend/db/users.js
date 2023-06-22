@@ -28,4 +28,16 @@ export const users = [
     avatarUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687208591/fabrizo_user_w32pz1.jpg",
   },
+  {
+    _id: uuid(),
+    firstName: "Manchester",
+    lastName: "City",
+    username: "mancity",
+    password: "mancity123",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    bookmarks: [],
+    avatarUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1687210465/mancity_logo_ykygdy.jpg",
+  },
 ];

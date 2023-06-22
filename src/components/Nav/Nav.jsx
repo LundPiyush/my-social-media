@@ -4,12 +4,16 @@ import { Link } from "react-router-dom";
 import userimage from "../../assets/userimage.png";
 const Nav = () => {
   const { authState } = useAuth();
-  console.log("authState: ", authState);
+  console.log(authState?.user);
   return (
     <div className="flex justify-between sticky top-0 z-10 shadow-2xl border-b-2 bg-white">
       <div>left</div>
       {authState?.isLoggedIn && (
-        <div>{authState?.user?.firstName + authState?.user?.lastName}</div>
+        <div>
+          {authState?.user?.firstName + authState?.user?.lastName}{" "}
+          {authState?.user?.followers?.length}{" "}
+          {authState?.user?.following?.length}
+        </div>
       )}
       <Link
         to={authState?.isLoggedIn ? "/" : "/login"}

@@ -27,6 +27,9 @@ module.exports = {
       boxShadow: {
         "2xl": "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;",
       },
+      height: {
+        calculate_nav: "calc(100vh - 72px)",
+      },
     },
   },
   plugins: [],
