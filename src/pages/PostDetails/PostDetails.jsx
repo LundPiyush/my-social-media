@@ -36,7 +36,6 @@ const PostDetail = () => {
   }
   return (
     <div>
-      <Nav />
       <div className="flex gap-2">
         <div className="my-4 mx-auto min-w-[70%] max-w-[100%]">
           <Post {...post} />

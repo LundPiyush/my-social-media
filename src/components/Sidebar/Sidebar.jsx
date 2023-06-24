@@ -44,6 +44,7 @@ const Sidebar = () => {
           onClick={() => {}}>
           Post
         </button>
+        <button onClick={() => localStorage.removeItem("token")}>Logout</button>
       </div>
     </div>
   );

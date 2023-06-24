@@ -18,6 +18,7 @@ const UsersContext = createContext(null);
 export const UsersProvider = ({ children }) => {
   const { authState } = useAuth();
   const [usersData, usersDispatch] = useReducer(usersReducer, { users: [] });
+
   const getAllUsers = async () => {
     try {
       const { data, status } = await getAllUsersService();
@@ -47,8 +48,18 @@ export const UsersProvider = ({ children }) => {
   useEffect(() => {
     getAllUsers();
   }, []);
+
+  const getProfileCount = (username) => {
+    const currentUser = usersData?.users?.find(
+      (user) => user?.username === username
+    );
+    return {
+      followers: currentUser?.followers,
+      following: currentUser?.following,
+    };
+  };
   return (
-    <UsersContext.Provider value={{ usersData, followUser }}>
+    <UsersContext.Provider value={{ usersData, followUser, getProfileCount }}>
       {children}
     </UsersContext.Provider>
   );

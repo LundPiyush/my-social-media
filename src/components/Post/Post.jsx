@@ -34,6 +34,7 @@ const Post = (props) => {
       likePost(_id);
     }
   };
+
   return (
     <div className="flex flex-col border-2 p-4 w-[60%] mx-auto xl:w-[70%] lg:w-[90%] lg:mx-7">
       <div className="flex items-center justify-between">
@@ -45,20 +46,31 @@ const Post = (props) => {
             height={10}
             className="rounded-full"
           />
-          <div className="flex flex-col items-start">
-            <div className="flex">
-              <p className="capitalize text-xl mr-1">{username}</p>
-              <img
-                alt="verified_icon"
-                src={verifiedicon}
-                className="h-[28px] w-[22px] object-contain"
-              />
+          <Link to={`/profile/${username}`}>
+            <div className="flex flex-col items-start">
+              <div className="flex">
+                <p className="capitalize text-xl mr-1 hover:underline">
+                  {username}
+                </p>
+                <img
+                  alt="verified_icon"
+                  src={verifiedicon}
+                  className="h-[28px] w-[22px] object-contain"
+                />
+              </div>
+              <p>@{username}</p>
             </div>
-            <p>@{username}</p>
-          </div>
+          </Link>
         </div>
+
         <p className="self-start justify-center pt-2 text-md md:self-center lg:text-sm md:text-md xs:hidden">
-          {createdAt?.slice(0, 10)}
+          {`${new Date(createdAt)
+            .toDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+            .slice(4)}`}
         </p>
       </div>
       <div className="flex flex-col my-2">
@@ -66,7 +78,7 @@ const Post = (props) => {
           <p className="text-left ml-2 my-4">{content}</p>
           <img
             src={mediaUrl}
-            alt="haland"
+            alt={username}
             className="max-h-96 mx-auto rounded-lg"
           />
         </Link>

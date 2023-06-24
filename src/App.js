@@ -8,18 +8,22 @@ import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
 import Explore from "./pages/Explore/Explore";
 import PostDetails from "./pages/PostDetails/PostDetails";
+import Profile from "./pages/Profile/Profile";
+import LikedPosts from "./pages/LikedPosts/LikedPosts";
 
 function App() {
   return (
     <div className="App">
       <ToastContainer position="bottom-right" autoClose={1500} draggable />
-
+      <Nav />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<Home />} />
         <Route path="/explore" element={<Explore />} />
+        <Route path="/liked-posts" element={<LikedPosts />} />
         <Route path="/post/:postId" element={<PostDetails />} />
+        <Route path="/profile/:username" element={<Profile />} />
       </Routes>
     </div>
   );

@@ -48,7 +48,7 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "Manchester City",
+    username: "mancity",
     userUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687210465/mancity_logo_ykygdy.jpg",
     createdAt: formatDate(),
@@ -65,7 +65,7 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "Manchester City",
+    username: "mancity",
     userUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687210465/mancity_logo_ykygdy.jpg",
     createdAt: formatDate(),
@@ -81,12 +81,28 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "Manchester City",
+    username: "mancity",
     userUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687210465/mancity_logo_ykygdy.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
     mediaUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687207059/pep_ucl_bc9mec.jpg",
+  },
+  {
+    _id: uuid(),
+    content: `Champions Adarsh Balika`,
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "adarshbalika",
+    userUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1687208699/userimage_u8ozxc.png",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    mediaUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1687189677/erlinghaland_zsfl59.jpg",
   },
 ];

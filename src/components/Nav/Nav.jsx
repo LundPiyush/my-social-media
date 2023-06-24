@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import userimage from "../../assets/userimage.png";
 const Nav = () => {
   const { authState } = useAuth();
-  console.log(authState?.user);
   return (
     <div className="flex justify-between sticky top-0 z-10 shadow-2xl border-b-2 bg-white">
       <div>left</div>

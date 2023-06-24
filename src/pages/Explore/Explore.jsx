@@ -1,5 +1,4 @@
 import React from "react";
-import Nav from "../../components/Nav/Nav";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { usePosts } from "../../context/posts-context";
 import Post from "../../components/Post/Post";
@@ -12,7 +11,6 @@ const Explore = () => {
 
   return (
     <>
-      <Nav />
       <div className="h-calculate_nav overflow-hidden">
         <div className="flex justify-between h-calculate_nav">
           <Sidebar />
@@ -21,7 +19,7 @@ const Explore = () => {
               <Post {...post} key={post._id} />
             ))}
           </div>
-          <div className="min-w-[20rem] p-4 border-2 border-red-100 h-calculate_nav lg:hidden">
+          <div className="min-w-[20rem] p-4 border-2 h-calculate_nav lg:hidden">
             <Suggestion />
           </div>
         </div>

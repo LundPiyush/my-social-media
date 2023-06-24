@@ -11,6 +11,8 @@ export const AuthProvider = ({ children }) => {
     user: {},
     isLoggedIn: false,
   };
+  //user - {adarsh obj}
+  //posts,setPosts = all posts
 
   const [authState, authDispatch] = useReducer(authReducer, initalAuthState);
 
