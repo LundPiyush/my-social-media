@@ -7,12 +7,14 @@ const Nav = () => {
   return (
     <div className="flex justify-between sticky top-0 z-10 shadow-2xl border-b-2 bg-white">
       <div>left</div>
-      {authState?.isLoggedIn && (
+      {authState?.isLoggedIn ? (
         <div>
           {authState?.user?.firstName + authState?.user?.lastName}{" "}
           {authState?.user?.followers?.length}{" "}
           {authState?.user?.following?.length}
         </div>
+      ) : (
+        <p>not logged in</p>
       )}
       <Link
         to={authState?.isLoggedIn ? "/" : "/login"}

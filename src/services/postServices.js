@@ -25,6 +25,5 @@ export const postDisLikeService = (postId, token) => {
 };
 
 export const getUserPostsService = (username) => {
-  console.log(username);
   return axios.get(`/api/posts/user/${username}`);
 };

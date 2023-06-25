@@ -9,9 +9,8 @@ import { POSTS } from "../utils/actionTypes";
 import { useAuth } from "./auth-context";
 
 const PostsContext = createContext(null);
-const initailPosts = { posts: [] };
 export const PostsProvider = ({ children }) => {
-  const [postsData, postsDispatch] = useReducer(postsReducer, initailPosts);
+  const [postsData, postsDispatch] = useReducer(postsReducer, { posts: [] });
   const { authState } = useAuth();
 
   const getAllPosts = async () => {

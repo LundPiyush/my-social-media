@@ -7,6 +7,9 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import { usePosts } from "../../context/posts-context";
 import { useAuth } from "../../context/auth-context";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import { purple } from "@mui/material/colors";
+import { useBookmark } from "../../context/bookmark-context";
 
 const Post = (props) => {
   const {
@@ -21,6 +24,8 @@ const Post = (props) => {
   } = props;
   const { likePost, disLikePost } = usePosts();
   const { authState } = useAuth();
+  const { addToBookmark, postAlreadyInBookmarks, removeFromBookMark } =
+    useBookmark();
 
   const likeByUser = () =>
     props?.likes?.likedBy.filter(
@@ -33,6 +38,11 @@ const Post = (props) => {
     } else {
       likePost(_id);
     }
+  };
+  const bookmarkClickHandler = (id) => {
+    if (postAlreadyInBookmarks(id)) {
+      removeFromBookMark(_id);
+    } else addToBookmark(_id);
   };
 
   return (
@@ -95,8 +105,12 @@ const Post = (props) => {
           </button>
           <span>{likes?.likeCount}</span>
         </div>
-        <button>
-          <BookmarkBorderIcon style={{ color: "gray" }} />
+        <button onClick={() => bookmarkClickHandler(_id)}>
+          {postAlreadyInBookmarks(_id) ? (
+            <BookmarkIcon sx={{ color: purple[500] }} />
+          ) : (
+            <BookmarkBorderIcon style={{ color: "gray" }} />
+          )}
         </button>
         <div className="flex items-center gap-1 hover:cursor-pointer">
           <ChatBubbleOutlineIcon

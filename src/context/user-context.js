@@ -1,14 +1,9 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import { usersReducer } from "../reducers/users-reducer";
 import {
   followUserService,
   getAllUsersService,
+  unFollowUserService,
 } from "../services/usersService";
 import { USERS } from "../utils/actionTypes";
 import { useAuth } from "./auth-context";
@@ -17,7 +12,9 @@ const UsersContext = createContext(null);
 
 export const UsersProvider = ({ children }) => {
   const { authState } = useAuth();
-  const [usersData, usersDispatch] = useReducer(usersReducer, { users: [] });
+  const [usersData, usersDispatch] = useReducer(usersReducer, {
+    users: [],
+  });
 
   const getAllUsers = async () => {
     try {
@@ -36,11 +33,33 @@ export const UsersProvider = ({ children }) => {
         followerId,
         authState?.token
       );
-      usersDispatch({
-        type: USERS.UPDATE_FOLLOWERS,
-        payload: data?.followUser,
-      });
-      usersDispatch({ type: USERS.UPDATE_FOLLOWING, payload: data?.user });
+      if (status === 200 || status === 201) {
+        usersDispatch({
+          type: USERS.UPDATE_FOLLOWERS,
+          payload: data?.followUser,
+        });
+        usersDispatch({ type: USERS.UPDATE_FOLLOWING, payload: data?.user });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const unFollowUser = async (username) => {
+    const followerId = usersData?.users?.find(
+      (user) => user?.username === username
+    );
+    try {
+      const { data, status } = await unFollowUserService(
+        followerId?._id,
+        authState?.token
+      );
+      if (status === 200 || status === 201) {
+        usersDispatch({
+          type: USERS.UPDATE_FOLLOWERS,
+          payload: data?.followUser,
+        });
+        usersDispatch({ type: USERS.UPDATE_FOLLOWING, payload: data?.user });
+      }
     } catch (err) {
       console.log(err);
     }
@@ -59,7 +78,8 @@ export const UsersProvider = ({ children }) => {
     };
   };
   return (
-    <UsersContext.Provider value={{ usersData, followUser, getProfileCount }}>
+    <UsersContext.Provider
+      value={{ usersData, followUser, unFollowUser, getProfileCount }}>
       {children}
     </UsersContext.Provider>
   );

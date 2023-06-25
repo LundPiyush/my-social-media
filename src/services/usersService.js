@@ -11,7 +11,13 @@ export const followUserService = (followerId, token) => {
     { headers: { authorization: token } }
   );
 };
-
+export const unFollowUserService = (followerId, token) => {
+  return axios.post(
+    `/api/users/unfollow/${followerId}`,
+    {},
+    { headers: { authorization: token } }
+  );
+};
 export const getUserProfileDetailsService = (username) => {
   return axios.get(`/api/users/${username}`);
 };

@@ -10,6 +10,7 @@ import Explore from "./pages/Explore/Explore";
 import PostDetails from "./pages/PostDetails/PostDetails";
 import Profile from "./pages/Profile/Profile";
 import LikedPosts from "./pages/LikedPosts/LikedPosts";
+import Bookmark from "./pages/Bookmark/Bookmark";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<Home />} />
         <Route path="/explore" element={<Explore />} />
+        <Route path="/bookmarks" element={<Bookmark />} />
         <Route path="/liked-posts" element={<LikedPosts />} />
         <Route path="/post/:postId" element={<PostDetails />} />
         <Route path="/profile/:username" element={<Profile />} />

@@ -36,6 +36,17 @@ export const AuthProvider = ({ children }) => {
       console.log(err.response.data);
     }
   };
+  const logOutUser = () => {
+    try {
+      authDispatch({ type: "SET_TOKEN", payload: "" });
+      authDispatch({ type: "SET_USER", payload: {} });
+      authDispatch({ type: "SET_USER", payload: false });
+      localStorage.removeItem("token");
+      toast.success("Logged Out");
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const SignUpUser = async ({
     username,
     password,
@@ -65,7 +76,8 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ loginUser, SignUpUser, authState }}>
+    <AuthContext.Provider
+      value={{ loginUser, SignUpUser, authState, logOutUser }}>
       {children}
     </AuthContext.Provider>
   );

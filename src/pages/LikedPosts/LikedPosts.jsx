@@ -24,9 +24,13 @@ const LikedPosts = () => {
         <div className="flex justify-between h-calculate_nav">
           <Sidebar />
           <div className="flex flex-col gap-0 overflow-y-scroll w-[100%]">
-            {likedPosts?.map((post) => (
-              <Post {...post} key={post._id} />
-            ))}
+            {likedPosts.length === 0 ? (
+              <p className="text-3xl my-auto text-primary-color">
+                You've not liked any posts yet !!!
+              </p>
+            ) : (
+              likedPosts?.map((post) => <Post {...post} key={post._id} />)
+            )}
           </div>
           <div className="min-w-[20rem] p-4 border-2 h-calculate_nav lg:hidden">
             <Suggestion />

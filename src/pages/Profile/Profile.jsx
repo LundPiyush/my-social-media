@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useUsers } from "../../context/user-context";
 import { getUserProfileDetailsService } from "../../services/usersService";
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -8,14 +8,15 @@ import Post from "../../components/Post/Post";
 import { usePosts } from "../../context/posts-context";
 import { useAuth } from "../../context/auth-context";
 import LogoutIcon from "@mui/icons-material/Logout";
+import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
 
 const Profile = () => {
   const { username } = useParams();
   const [user, setUser] = useState({});
-
+  const navigate = useNavigate();
   const [postCount, setPostCount] = useState(0);
-  const { authState } = useAuth();
-  const { getProfileCount } = useUsers();
+  const { authState, logOutUser } = useAuth();
+  const { getProfileCount, unFollowUser } = useUsers();
   const {
     postsData: { posts },
   } = usePosts();
@@ -39,7 +40,6 @@ const Profile = () => {
       <div className="h-calculate_nav overflow-hidden">
         <div className="flex justify-between h-calculate_nav">
           <Sidebar />
-
           <div className="flex flex-col gap-0 overflow-y-scroll w-[100%]">
             <div className="flex border-2 m-auto p-4 my-3 gap-2 w-[60%] mx-auto xl:w-[70%] lg:w-[90%] lg:mx-8">
               <img
@@ -65,13 +65,26 @@ const Profile = () => {
                     </button>
                   )}
                 </div>
-
                 <div className="flex justify-between items-center my-2">
                   <p>Bio content goes here</p>
-                  <LogoutIcon
-                    className="hover:cursor-pointer"
-                    onClick={() => {}}
-                  />
+                  <div className="space-x-6">
+                    {authState?.user?.username !== username ? (
+                      <PersonRemoveIcon
+                        fontSize="medium"
+                        className="hover:cursor-pointer"
+                        onClick={() => unFollowUser(username)}
+                      />
+                    ) : (
+                      <LogoutIcon
+                        className="hover:cursor-pointer"
+                        fontSize="medium"
+                        onClick={() => {
+                          logOutUser();
+                          navigate("/login");
+                        }}
+                      />
+                    )}
+                  </div>
                 </div>
                 <div className="flex justify-between">
                   <p>Posts</p>
@@ -89,13 +102,15 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-            {posts?.length > 0
-              ? posts?.map((post) => {
-                  return post?.username === username ? (
-                    <Post {...post} key={post._id} />
-                  ) : null;
-                })
-              : null}
+            {posts?.length !== 0 ? (
+              posts?.map((post) => {
+                return post?.username === username ? (
+                  <Post {...post} key={post._id} />
+                ) : null;
+              })
+            ) : (
+              <p>{username} you haven't posted any post yet !</p>
+            )}
           </div>
           <div className="min-w-[20rem] p-4 border-2 h-calculate_nav lg:hidden">
             <Suggestion />
