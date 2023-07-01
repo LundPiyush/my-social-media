@@ -45,4 +45,17 @@ export const users = [
     avatarUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687210465/mancity_logo_ykygdy.jpg",
   },
+  {
+    _id: uuid(),
+    firstName: "Argentina",
+    lastName: "Team",
+    username: "argentina",
+    password: "argentina123",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    bio: "Argentina National Football Team",
+    website: "https://en.wikipedia.org/wiki/Argentina_national_football_team",
+    avatarUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1688208374/argentina3_logo_auratt.jpg",
+  },
 ];
