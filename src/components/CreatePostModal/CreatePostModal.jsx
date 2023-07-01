@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import ImageIcon from "@mui/icons-material/Image";
 import { usePosts } from "../../context/posts-context";
 import { useAuth } from "../../context/auth-context";
-import axios from "axios";
 
 const CreatePostModal = ({ setModal }) => {
   const [postInput, setPostInput] = useState({

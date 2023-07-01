@@ -15,16 +15,7 @@ import { useBookmark } from "../../context/bookmark-context";
 import EditPostModal from "../EditPostModal/EditPostModal";
 
 const Post = (props) => {
-  const {
-    _id,
-    content,
-    likes,
-    username,
-    createdAt,
-    updatedAt,
-    mediaUrl,
-    userUrl,
-  } = props;
+  const { _id, content, likes, username, createdAt, mediaUrl, userUrl } = props;
   const [editPostModal, setEditPostModal] = useState(false);
   const { likePost, disLikePost, deletePost } = usePosts();
   const { authState } = useAuth();

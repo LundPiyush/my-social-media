@@ -24,6 +24,7 @@ const Suggestion = () => {
           )
       )
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [users, authState]);
   return (
     <div>
