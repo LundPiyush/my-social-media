@@ -41,7 +41,7 @@ const PostDetail = () => {
         <div className="my-4 mx-auto min-w-[70%] max-w-[100%]">
           <Post {...post} />
         </div>
-        <div className="min-w-[20rem] p-4 border-2 border-red-100 h-calculate_nav md:hidden">
+        <div className="min-w-[20rem] p-4 border-2 h-calculate_nav md:hidden">
           <Suggestion />
         </div>
       </div>
