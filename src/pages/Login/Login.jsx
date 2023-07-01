@@ -30,7 +30,7 @@ const Login = () => {
     <>
       <h1 className="text-3xl my-[5%]">Login</h1>
       <div className="flex justify-center gap-6">
-        <form className="flex flex-col gap-6 py-14 px-10 border-solid border-2 border-indigo-60 shadow-2xl rounded-md">
+        <form className="flex flex-col gap-6 py-14 px-10 border-solid border-2 border-indigo-60 shadow-xl rounded-md">
           <div className="flex justify-between gap-2">
             <label className="">Username</label>
             <input
