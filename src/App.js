@@ -11,6 +11,7 @@ import PostDetails from "./pages/PostDetails/PostDetails";
 import Profile from "./pages/Profile/Profile";
 import LikedPosts from "./pages/LikedPosts/LikedPosts";
 import Bookmark from "./pages/Bookmark/Bookmark";
+import RequireAuth from "./components/RequireAuth/RequireAuth";
 
 function App() {
   return (
@@ -20,12 +21,14 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/bookmarks" element={<Bookmark />} />
-        <Route path="/liked-posts" element={<LikedPosts />} />
-        <Route path="/post/:postId" element={<PostDetails />} />
-        <Route path="/profile/:username" element={<Profile />} />
+        <Route element={<RequireAuth />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/bookmarks" element={<Bookmark />} />
+          <Route path="/liked-posts" element={<LikedPosts />} />
+          <Route path="/post/:postId" element={<PostDetails />} />
+          <Route path="/profile/:username" element={<Profile />} />
+        </Route>
       </Routes>
     </div>
   );
