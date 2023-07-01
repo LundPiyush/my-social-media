@@ -1,5 +1,6 @@
 :root {
   --primary-color: #a020f0;
+  --modal-background-color: rgba(0, 0, 0, 0.5);
 }
 .App {
   text-align: center;

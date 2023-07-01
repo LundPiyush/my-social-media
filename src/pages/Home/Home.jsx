@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Suggestion from "../../components/Suggestions/Suggestion";
 import Post from "../../components/Post/Post";
@@ -7,7 +7,8 @@ import { useUsers } from "../../context/user-context";
 import { usePosts } from "../../context/posts-context";
 
 const Home = () => {
-  //const [posts, setPosts] = useState([]);
+  const [sortbyLikes, setSortbyLikes] = useState(false);
+  const [sortbyDate, setSortbyDate] = useState(false);
   const { authState } = useAuth();
   const { usersData } = useUsers();
   const {
@@ -30,6 +31,15 @@ const Home = () => {
     ...posts?.filter(({ username }) => username === authState?.user?.username),
   ];
   userFeed = userFeed.reverse();
+  if (sortbyLikes) {
+    userFeed = userFeed.sort((a, b) => b.likes.likeCount - a.likes.likeCount);
+  }
+  if (sortbyDate) {
+    userFeed = userFeed.sort(
+      (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
+    );
+  }
+
   return (
     <>
       <div className="h-calculate_nav overflow-hidden">
@@ -41,6 +51,18 @@ const Home = () => {
             ))}
           </div>
           <div className="min-w-[20rem] p-4 border-2 h-calculate_nav lg:hidden">
+            <div className="flex justify-around mb-4">
+              <button
+                onClick={() => setSortbyLikes((prev) => !prev)}
+                className="border-2 px-2 py-1 rounded-lg border-gray-300">
+                🔥 Trending
+              </button>
+              <button
+                onClick={() => setSortbyDate((prev) => !prev)}
+                className="border-2 px-2 py-1 rounded-lg border-gray-300">
+                Latest
+              </button>
+            </div>
             <Suggestion />
           </div>
         </div>

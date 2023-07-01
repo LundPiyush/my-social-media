@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getPostService } from "../../services/postServices";
 import Post from "../../components/Post/Post";
-import Nav from "../../components/Nav/Nav";
 import Suggestion from "../../components/Suggestions/Suggestion";
 import { usePosts } from "../../context/posts-context";
 
@@ -26,8 +24,11 @@ const PostDetail = () => {
   // };
 
   useEffect(() => {
-    if (postId && postsData?.posts)
+    setIsLoading(true);
+    if (postId && postsData?.posts) {
       setPost(postsData?.posts.filter((post) => post._id === postId)[0]);
+      setIsLoading(false);
+    }
     //getPostData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postsData?.posts]);

@@ -27,3 +27,25 @@ export const postDisLikeService = (postId, token) => {
 export const getUserPostsService = (username) => {
   return axios.get(`/api/posts/user/${username}`);
 };
+
+export const createPostService = (postData, token) => {
+  return axios.post(
+    `/api/posts`,
+    { postData },
+    { headers: { authorization: token } }
+  );
+};
+
+export const deletePostService = (postId, token) => {
+  return axios.delete(`/api/posts/${postId}`, {
+    headers: { authorization: token },
+  });
+};
+
+export const editPostService = (postId, postData, token) => {
+  return axios.post(
+    `/api/posts/edit/${postId}`,
+    { postData },
+    { headers: { authorization: token } }
+  );
+};

@@ -250,7 +250,7 @@ export const dislikePostHandler = function (schema, request) {
 
 /**
  * This handler handles deleting a post in the db.
- * send DELETE Request at /api/user/posts/:postId
+ * send DELETE Request at /api/posts/:postId
  * */
 export const deletePostHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);

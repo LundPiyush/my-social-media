@@ -14,6 +14,8 @@ export const users = [
     password: "adarshBalika123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    bio: "Student",
+    website: "https://adarshbalika.netlify.app",
     avatarUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687208699/userimage_u8ozxc.png",
   },
@@ -25,6 +27,8 @@ export const users = [
     password: "fabrizioromano123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    website: "https://en.wikipedia.org/wiki/Fabrizio_Romano",
+    bio: "Football Agent",
     avatarUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687208591/fabrizo_user_w32pz1.jpg",
   },
@@ -36,7 +40,8 @@ export const users = [
     password: "mancity123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    bookmarks: [],
+    bio: "English Club",
+    website: "https://www.mancity.com",
     avatarUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687210465/mancity_logo_ykygdy.jpg",
   },

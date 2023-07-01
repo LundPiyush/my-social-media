@@ -2,22 +2,31 @@ import React from "react";
 import { useAuth } from "../../context/auth-context";
 import { Link } from "react-router-dom";
 import userimage from "../../assets/userimage.png";
+import MenuIcon from "@mui/icons-material/Menu";
 const Nav = () => {
   const { authState } = useAuth();
+  const toggleHandler = () => {};
   return (
-    <div className="flex justify-between sticky top-0 z-10 shadow-2xl border-b-2 bg-white">
-      <div>left</div>
-      {authState?.isLoggedIn ? (
-        <div>
-          {authState?.user?.firstName + authState?.user?.lastName}{" "}
-          {authState?.user?.followers?.length}{" "}
-          {authState?.user?.following?.length}
-        </div>
-      ) : (
-        <p>not logged in</p>
-      )}
+    <div className="flex justify-between items-center sticky top-0 z-10 shadow-2xl border-b-2 bg-white">
+      <div className="flex items-center mx-10">
+        <MenuIcon onClick={() => toggleHandler()} className="cursor-pointer" />
+        <p className="text-2xl ml-2">OneFootball</p>
+      </div>
+      <div>
+        <input
+          type="text"
+          className="border border-solid border-gray-300 rounded-l-full w-[38rem] py-2 px-5"
+        />
+        <button className="border border-gray-300 rounded-r-full py-2 px-5 bg-gray-100 ">
+          🔍
+        </button>
+      </div>
       <Link
-        to={authState?.isLoggedIn ? "/" : "/login"}
+        to={
+          authState?.isLoggedIn
+            ? `/profile/${authState?.user?.username}`
+            : "/login"
+        }
         className="self-center mx-4 my-4">
         <span className="bg-blue-500">
           {authState?.isLoggedIn ? (

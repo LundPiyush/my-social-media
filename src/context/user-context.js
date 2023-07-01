@@ -1,8 +1,16 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import { usersReducer } from "../reducers/users-reducer";
 import {
+  editUserService,
   followUserService,
   getAllUsersService,
+  getUserProfileDetailsService,
   unFollowUserService,
 } from "../services/usersService";
 import { USERS } from "../utils/actionTypes";
@@ -15,6 +23,7 @@ export const UsersProvider = ({ children }) => {
   const [usersData, usersDispatch] = useReducer(usersReducer, {
     users: [],
   });
+  const [user, setUser] = useState({});
 
   const getAllUsers = async () => {
     try {
@@ -27,6 +36,27 @@ export const UsersProvider = ({ children }) => {
     }
   };
 
+  const getUserProfileDetails = async (username) => {
+    try {
+      const { data, status } = await getUserProfileDetailsService(username);
+      if (status === 200) {
+        setUser(data?.user);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const editUser = async (user) => {
+    try {
+      const { data, status } = await editUserService(user, authState?.token);
+      if (status === 201) {
+        setUser(data?.user);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const followUser = async (followerId) => {
     try {
       const { data, status } = await followUserService(
@@ -79,7 +109,15 @@ export const UsersProvider = ({ children }) => {
   };
   return (
     <UsersContext.Provider
-      value={{ usersData, followUser, unFollowUser, getProfileCount }}>
+      value={{
+        usersData,
+        followUser,
+        unFollowUser,
+        getProfileCount,
+        editUser,
+        user,
+        getUserProfileDetails,
+      }}>
       {children}
     </UsersContext.Provider>
   );

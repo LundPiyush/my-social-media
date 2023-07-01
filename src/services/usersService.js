@@ -11,6 +11,14 @@ export const followUserService = (followerId, token) => {
     { headers: { authorization: token } }
   );
 };
+export const editUserService = (userData, token) => {
+  return axios.post(
+    `/api/users/edit`,
+    { userData },
+    { headers: { authorization: token } }
+  );
+};
+
 export const unFollowUserService = (followerId, token) => {
   return axios.post(
     `/api/users/unfollow/${followerId}`,

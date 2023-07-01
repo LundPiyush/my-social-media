@@ -56,9 +56,6 @@ export const editUserHandler = function (schema, request) {
       );
     }
     const { userData } = JSON.parse(request.requestBody);
-    console.log(
-      userData && userData.username && userData.username !== user.username
-    );
     if (userData && userData.username && userData.username !== user.username) {
       return new Response(
         404,
@@ -82,7 +79,6 @@ export const editUserHandler = function (schema, request) {
     );
   }
 };
-
 /**
  * This handler gets all the user bookmarks from the db.
  * send GET Request at /api/users/bookmark/

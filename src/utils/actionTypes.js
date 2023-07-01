@@ -1,5 +1,8 @@
 export const POSTS = {
   INITIALIZE: "POST_INITIALIZE",
+  DELETE: "DELETE",
+  EDIT: "EDIT",
+  ADD: "ADD",
 };
 
 export const USERS = {

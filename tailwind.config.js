@@ -22,6 +22,7 @@ module.exports = {
     extend: {
       colors: {
         "primary-color": "var(--primary-color)",
+        "modal-background": "var(--modal-background-color)",
       },
       buttons: {},
       boxShadow: {

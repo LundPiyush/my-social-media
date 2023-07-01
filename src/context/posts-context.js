@@ -1,5 +1,8 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import {
+  createPostService,
+  deletePostService,
+  editPostService,
   getAllPostsService,
   postDisLikeService,
   postLikeService,
@@ -7,6 +10,7 @@ import {
 import { postsReducer } from "../reducers/posts-reducer";
 import { POSTS } from "../utils/actionTypes";
 import { useAuth } from "./auth-context";
+import { toast } from "react-toastify";
 
 const PostsContext = createContext(null);
 export const PostsProvider = ({ children }) => {
@@ -24,6 +28,20 @@ export const PostsProvider = ({ children }) => {
     }
   };
 
+  const createPost = async (postInput) => {
+    try {
+      const { data, status } = await createPostService(
+        postInput,
+        authState?.token
+      );
+      if (status === 200 || status === 201) {
+        postsDispatch({ type: POSTS.ADD, payload: data?.posts });
+        console.log(data?.posts);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const likePost = async (postId) => {
     try {
       const { status, data } = await postLikeService(postId, authState?.token);
@@ -49,12 +67,52 @@ export const PostsProvider = ({ children }) => {
     }
   };
 
+  const deletePost = async (postId) => {
+    try {
+      const { data, status } = await deletePostService(
+        postId,
+        authState?.token
+      );
+      if (status === 200 || status === 201) {
+        postsDispatch({ type: POSTS.DELETE, payload: data?.posts });
+        toast.success(`Post deleted successfully`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const editPost = async (postId, postData) => {
+    try {
+      const { data, status } = await editPostService(
+        postId,
+        postData,
+        authState?.token
+      );
+      if (status === 200 || status === 201) {
+        postsDispatch({ type: POSTS.EDIT, payload: data?.posts });
+        toast.success("Post edited successfully");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong, please try again");
+    }
+  };
+
   useEffect(() => {
     getAllPosts();
     // eslint-disable-next-line
   }, []);
   return (
-    <PostsContext.Provider value={{ postsData, likePost, disLikePost }}>
+    <PostsContext.Provider
+      value={{
+        postsData,
+        likePost,
+        disLikePost,
+        deletePost,
+        editPost,
+        createPost,
+      }}>
       {children}
     </PostsContext.Provider>
   );

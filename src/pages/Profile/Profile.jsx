@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useUsers } from "../../context/user-context";
-import { getUserProfileDetailsService } from "../../services/usersService";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Suggestion from "../../components/Suggestions/Suggestion";
 import Post from "../../components/Post/Post";
@@ -9,34 +8,59 @@ import { usePosts } from "../../context/posts-context";
 import { useAuth } from "../../context/auth-context";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
+import EditModal from "../../components/EditModal/EditModal";
+import FollowersModal from "../../components/FollowersModal/FollowersModal";
 
 const Profile = () => {
   const { username } = useParams();
-  const [user, setUser] = useState({});
   const navigate = useNavigate();
   const [postCount, setPostCount] = useState(0);
   const { authState, logOutUser } = useAuth();
-  const { getProfileCount, unFollowUser } = useUsers();
+  const {
+    getProfileCount,
+    unFollowUser,
+    followUser,
+    user,
+    getUserProfileDetails,
+  } = useUsers();
   const {
     postsData: { posts },
   } = usePosts();
-  const getUserProfileDetails = async (username) => {
-    try {
-      const { data, status } = await getUserProfileDetailsService(username);
-      if (status === 200) {
-        setUser(data?.user);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const [showModal, setShowModal] = useState({ type: "", modal: false });
 
   useEffect(() => {
     getUserProfileDetails(username);
     setPostCount(posts.filter((post) => post?.username === username).length);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [username, posts]);
+
+  const editButtonHandler = () => {
+    setShowModal({ type: "EDIT", modal: true });
+  };
   return (
     <>
+      {showModal.modal ? (
+        showModal.type === "EDIT" ? (
+          <EditModal
+            user={user}
+            setShowModal={setShowModal}
+            type={showModal.type}
+          />
+        ) : showModal.type === "FOLLOWERS" ? (
+          <FollowersModal
+            user={username}
+            setShowModal={setShowModal}
+            type={showModal.type}
+          />
+        ) : (
+          <FollowersModal
+            user={username}
+            setShowModal={setShowModal}
+            type={showModal.type}
+          />
+        )
+      ) : null}
+
       <div className="h-calculate_nav overflow-hidden">
         <div className="flex justify-between h-calculate_nav">
           <Sidebar />
@@ -56,17 +80,21 @@ const Profile = () => {
                     <h5 className="hover:underline">@{user?.username}</h5>
                   </div>
                   {authState?.user?.username === username ? (
-                    <button className="border-2 min-w-[6rem] rounded-md h-[2rem]">
+                    <button
+                      className="border-2 min-w-[6rem] rounded-md h-[2rem]"
+                      onClick={() => editButtonHandler()}>
                       Edit Profile
                     </button>
                   ) : (
-                    <button className="border-2 min-w-[6rem] rounded-md h-[2rem]">
-                      Following
+                    <button
+                      onClick={() => followUser(user?._id)}
+                      className="border-2 min-w-[6rem] rounded-md h-[2rem]">
+                      Follow
                     </button>
                   )}
                 </div>
                 <div className="flex justify-between items-center my-2">
-                  <p>Bio content goes here</p>
+                  <p>{user?.bio}</p>
                   <div className="space-x-6">
                     {authState?.user?.username !== username ? (
                       <PersonRemoveIcon
@@ -88,8 +116,18 @@ const Profile = () => {
                 </div>
                 <div className="flex justify-between">
                   <p>Posts</p>
-                  <p>Followers</p>
-                  <p>Following</p>
+                  <button
+                    onClick={() =>
+                      setShowModal({ type: "FOLLOWERS", modal: true })
+                    }>
+                    Followers
+                  </button>
+                  <button
+                    onClick={() =>
+                      setShowModal({ type: "FOLLOWING", modal: true })
+                    }>
+                    Following
+                  </button>
                 </div>
                 <div className="flex justify-between items-center">
                   <p className="ml-3">{postCount}</p>
