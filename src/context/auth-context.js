@@ -2,6 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 import axios from "axios";
 import { authReducer } from "../reducers/auth-reducer";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext(null);
 
@@ -11,9 +12,7 @@ export const AuthProvider = ({ children }) => {
     user: {},
     isLoggedIn: false,
   };
-  //user - {adarsh obj}
-  //posts,setPosts = all posts
-
+  const navigate = useNavigate();
   const [authState, authDispatch] = useReducer(authReducer, initalAuthState);
 
   const loginUser = async ({ username, password }) => {
@@ -68,6 +67,7 @@ export const AuthProvider = ({ children }) => {
         authDispatch({ type: "SET_USER", payload: data?.createdUser });
         authDispatch({ type: "SET_IS_LOGGED_IN", payload: true });
         localStorage.setItem("token", data?.encodedToken);
+        navigate("/");
         toast.success("Successfully signed up");
       }
     } catch (err) {

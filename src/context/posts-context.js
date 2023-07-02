@@ -36,7 +36,6 @@ export const PostsProvider = ({ children }) => {
       );
       if (status === 200 || status === 201) {
         postsDispatch({ type: POSTS.ADD, payload: data?.posts });
-        console.log(data?.posts);
       }
     } catch (error) {
       console.log(error);

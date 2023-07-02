@@ -34,7 +34,7 @@ const Login = () => {
           <div className="flex justify-between gap-2">
             <label className="">Username</label>
             <input
-              className="pl-2 w-[14rem] border-2 border-blue-600"
+              className="pl-2 w-[14rem] border-2"
               type="text"
               placeholder="adarshbalika"
               required
@@ -52,7 +52,7 @@ const Login = () => {
           <div className="flex justify-between">
             <label className="">Password</label>
             <input
-              className="pl-2 w-[14rem] border-2 border-blue-600"
+              className="pl-2 w-[14rem] border-2"
               type="password"
               required
               placeholder="*********"

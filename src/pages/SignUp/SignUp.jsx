@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 
 const SignUp = () => {
-  const navigate = useNavigate();
   const { SignUpUser } = useAuth();
   const [signUpDetails, setSignUpDetails] = useState({
     firstName: "",
@@ -15,18 +14,17 @@ const SignUp = () => {
   const signUpHandler = (e) => {
     e.preventDefault();
     SignUpUser(signUpDetails);
-    navigate("/");
   };
   return (
     <div className="flex flex-col">
       <h1 className="m-6 text-3xl underline">Sign Up</h1>
       <form
         onSubmit={signUpHandler}
-        className="flex flex-col p-6 border-solid border-2 border-indigo-600 m-auto">
+        className="flex flex-col p-6 border-solid border-2 border-gray-400 m-auto rounded-lg">
         <div className="flex justify-between">
           <label className="p-2">First Name</label>
           <input
-            className="mt-2 mb-4 px-2 py-1 border-2 border-blue-600"
+            className="mt-2 mb-4 px-2 py-1 border-2 border-gray-100"
             type="text"
             placeholder="adarsh"
             required
@@ -39,7 +37,7 @@ const SignUp = () => {
         <div className="flex justify-between">
           <label className="p-2">Last Name</label>
           <input
-            className="mt-2 mb-4 px-2 py-1 border-2 border-blue-600"
+            className="mt-2 mb-4 px-2 py-1 border-2 border-gray-100"
             type="text"
             placeholder="balika"
             required
@@ -52,7 +50,7 @@ const SignUp = () => {
         <div className="flex justify-between">
           <label className="p-2">Email</label>
           <input
-            className="mt-2 mb-4 px-2 py-1 border-2 border-blue-600"
+            className="mt-2 mb-4 px-2 py-1 border-2 border-gray-100"
             type="email"
             placeholder="adarshbalika@gmail.com"
             required
@@ -65,7 +63,7 @@ const SignUp = () => {
         <div className="flex justify-between">
           <label className="p-2">Username</label>
           <input
-            className="mt-2 mb-4 px-2 py-1 border-2 border-blue-600"
+            className="mt-2 mb-4 px-2 py-1 border-2 border-gray-100"
             type="text"
             placeholder="adarshbalika"
             required
@@ -78,7 +76,7 @@ const SignUp = () => {
         <div className="flex justify-between">
           <label className="p-2">Password</label>
           <input
-            className="mt-2 mb-4 px-2 py-1 border-2 border-blue-600"
+            className="mt-2 mb-4 px-2 py-1 border-2 border-gray-100"
             type="password"
             required
             placeholder="*********"

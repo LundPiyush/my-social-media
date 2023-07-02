@@ -69,7 +69,7 @@ const CreatePostModal = ({ setModal }) => {
                   setPostImage(null);
                   setPostInput({ ...postInput, mediaUrl: "" });
                 }}>
-                cross
+                ╳
               </button>
             </div>
           )}
