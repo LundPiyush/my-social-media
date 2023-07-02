@@ -13,7 +13,7 @@ const EditPostModal = ({ post, setEditPostModal }) => {
   };
   return (
     <div className="flex justify-center items-center  bg-modal-background fixed inset-0 z-10">
-      <div className="flex flex-col bg-white px-2 py-4">
+      <div className="flex flex-col bg-white px-2 py-4 overflow-y-scroll max-h-[38rem]">
         <div className="mb-2">
           <p className="text-2xl">Edit Post</p>
         </div>

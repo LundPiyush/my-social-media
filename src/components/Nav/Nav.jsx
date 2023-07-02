@@ -10,7 +10,7 @@ const Nav = () => {
     <div className="flex justify-between items-center sticky top-0 z-10 shadow-xl border-b-2 bg-white">
       <div className="flex items-center mx-10">
         <MenuIcon onClick={() => toggleHandler()} className="cursor-pointer" />
-        <p className="text-2xl ml-2">OneFootball</p>
+        <p className="text-2xl ml-2">OneSocial</p>
       </div>
       <div>
         <input
