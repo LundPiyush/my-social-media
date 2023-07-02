@@ -10,6 +10,10 @@ const SignUp = () => {
     email: "",
     username: "",
     password: "",
+    bio: "",
+    website: "",
+    avatarUrl:
+      "https://res.cloudinary.com/dygxaue5x/image/upload/v1687208699/userimage_u8ozxc.png",
   });
   const signUpHandler = (e) => {
     e.preventDefault();
@@ -70,6 +74,32 @@ const SignUp = () => {
             name="username"
             onChange={(e) =>
               setSignUpDetails({ ...signUpDetails, username: e.target.value })
+            }
+          />
+        </div>
+        <div className="flex justify-between">
+          <label className="p-2">Bio</label>
+          <input
+            className="mt-2 mb-4 px-2 py-1 border-2 border-gray-100"
+            type="text"
+            placeholder="Student"
+            required
+            name="bio"
+            onChange={(e) =>
+              setSignUpDetails({ ...signUpDetails, bio: e.target.value })
+            }
+          />
+        </div>
+        <div className="flex justify-between">
+          <label className="p-2">Website</label>
+          <input
+            className="mt-2 mb-4 px-2 py-1 border-2 border-gray-100"
+            type="text"
+            placeholder="https://adarshbalika.netlify.app"
+            required
+            name="website"
+            onChange={(e) =>
+              setSignUpDetails({ ...signUpDetails, website: e.target.value })
             }
           />
         </div>

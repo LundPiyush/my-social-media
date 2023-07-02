@@ -30,6 +30,7 @@ export const AuthProvider = ({ children }) => {
         toast.success(
           `Welcome ${data?.foundUser.firstName}, you are now logged in`
         );
+        navigate("/");
       }
     } catch (err) {
       console.log(err.response.data);
@@ -41,6 +42,7 @@ export const AuthProvider = ({ children }) => {
       authDispatch({ type: "SET_USER", payload: {} });
       authDispatch({ type: "SET_USER", payload: false });
       localStorage.removeItem("token");
+      localStorage.removeItem("user");
       toast.success("Logged Out");
     } catch (err) {
       console.log(err);
@@ -52,6 +54,9 @@ export const AuthProvider = ({ children }) => {
     firstName,
     lastName,
     email,
+    bio,
+    website,
+    avatarUrl,
   }) => {
     try {
       const response = await axios.post("/api/auth/signup", {
@@ -60,6 +65,9 @@ export const AuthProvider = ({ children }) => {
         firstName,
         lastName,
         email,
+        bio,
+        website,
+        avatarUrl,
       });
       const { data, status } = response;
       if (status === 201) {
@@ -67,6 +75,7 @@ export const AuthProvider = ({ children }) => {
         authDispatch({ type: "SET_USER", payload: data?.createdUser });
         authDispatch({ type: "SET_IS_LOGGED_IN", payload: true });
         localStorage.setItem("token", data?.encodedToken);
+        localStorage.setItem("user", JSON.stringify(data?.createdUser));
         navigate("/");
         toast.success("Successfully signed up");
       }

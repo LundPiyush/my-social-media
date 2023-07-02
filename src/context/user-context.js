@@ -23,6 +23,9 @@ export const UsersProvider = ({ children }) => {
   const [usersData, usersDispatch] = useReducer(usersReducer, {
     users: [],
   });
+  if (usersData?.users.length === 4 && localStorage.getItem("user")) {
+    usersDispatch({ type: USERS.SIGN_UP, payload: authState?.user });
+  }
   const [user, setUser] = useState({});
 
   const getAllUsers = async () => {
@@ -96,6 +99,7 @@ export const UsersProvider = ({ children }) => {
   };
   useEffect(() => {
     getAllUsers();
+    // eslint-disable-next-line
   }, []);
 
   const getProfileCount = (username) => {

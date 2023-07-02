@@ -24,7 +24,6 @@ const Login = () => {
     e.preventDefault();
     setLoginDetails(guessUserDetails);
     loginUser(guessUserDetails);
-    navigate("/");
   };
   return (
     <>

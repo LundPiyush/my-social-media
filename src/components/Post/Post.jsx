@@ -13,6 +13,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { purple } from "@mui/material/colors";
 import { useBookmark } from "../../context/bookmark-context";
 import EditPostModal from "../EditPostModal/EditPostModal";
+import { toast } from "react-toastify";
 
 const Post = (props) => {
   const { _id, content, likes, username, createdAt, mediaUrl, userUrl } = props;
@@ -128,6 +129,7 @@ const Post = (props) => {
           </button>
           <div className="flex items-center gap-1 hover:cursor-pointer">
             <ChatBubbleOutlineIcon
+              onClick={() => toast.success(`This feature is in progress`)}
               style={{ color: "gray", fontSize: "24px", paddingTop: "4px" }}
             />
             <span>12</span>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { useUsers } from "../../context/user-context";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Suggestion from "../../components/Suggestions/Suggestion";
@@ -27,7 +27,6 @@ const Profile = () => {
     postsData: { posts },
   } = usePosts();
   const [showModal, setShowModal] = useState({ type: "", modal: false });
-
   useEffect(() => {
     getUserProfileDetails(username);
     setPostCount(posts.filter((post) => post?.username === username).length);
@@ -95,6 +94,7 @@ const Profile = () => {
                 </div>
                 <div className="flex justify-between items-center my-2">
                   <p>{user?.bio}</p>
+                  <Link to={user?.website}>{user?.website}</Link>
                   <div className="space-x-6">
                     {authState?.user?.username !== username ? (
                       <PersonRemoveIcon

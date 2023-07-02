@@ -13,7 +13,7 @@ const Suggestion = () => {
 
   useEffect(() => {
     const currentUser = users.filter(
-      (user) => user._id === authState?.user?._id
+      (user) => user?._id === authState?.user?._id
     );
     setSuggestions(
       users?.filter(
