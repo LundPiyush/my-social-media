@@ -37,7 +37,7 @@ const Suggestion = () => {
               width={35}
               className="rounded-full"
               src={user?.avatarUrl}
-              alt={user?.username.slice(0, 1).toUpperCase()}
+              alt={user?.username?.slice(0, 1).toUpperCase()}
             />
             <Link to={`/profile/${user?.username}`} className="font-medium">
               {user?.firstName} {user?.lastName}

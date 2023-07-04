@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useUsers } from "../../context/user-context";
+import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
 
 const EditModal = ({ user, setShowModal }) => {
   const { editUser } = useUsers();
@@ -9,14 +10,16 @@ const EditModal = ({ user, setShowModal }) => {
     username: user?.username,
     bio: user?.bio,
     avatarUrl: user?.avatarUrl,
+    website: user?.website,
   });
+  console.log(editUserData);
   const updateHandler = () => {
     editUser(editUserData);
     setShowModal({ type: "", modal: false });
   };
   return (
-    <div className="flex justify-center items-center  bg-modal-background fixed inset-0 z-10">
-      <div className="flex flex-col bg-white px-2 py-4">
+    <div className="flex justify-center items-center bg-modal-background fixed inset-0 z-10">
+      <div className="flex flex-col bg-white px-2 py-4 w-1/4">
         <div className="mb-2">
           <p className="text-2xl">Edit Profile</p>
         </div>
@@ -24,13 +27,27 @@ const EditModal = ({ user, setShowModal }) => {
         <div className="flex justify-start items-start mt-2">
           <p className="pl-2 pr-16">Avatar</p>
           <img
-            src={user?.avatarUrl}
+            src={editUserData?.avatarUrl}
             alt={user?.username}
             className="rounded-full h-10 w-10"
           />
-          <span>
-            <label className=""></label>
-          </span>
+          <label>
+            <CameraAltOutlinedIcon
+              className="mt-6 hover:cursor-pointer"
+              fontSize="medium"
+            />
+            <input
+              type="file"
+              className="hidden"
+              accept="/image*"
+              onChange={(e) => {
+                setEditUserData({
+                  ...editUserData,
+                  avatarUrl: URL.createObjectURL(e.target.files[0]),
+                });
+              }}
+            />
+          </label>
         </div>
         <div className="flex justify-start items-start mt-2">
           <p className="pl-2 pr-16">Name</p>
@@ -50,6 +67,19 @@ const EditModal = ({ user, setShowModal }) => {
               }
               value={editUserData?.bio}
               className="ml-20 px-2 py-1 border-2"
+            />
+          </label>
+        </div>
+        <div className="flex justify-start items-start my-2">
+          <label className="pl-2">
+            Website
+            <input
+              type="text"
+              onChange={(e) =>
+                setEditUserData({ ...editUserData, website: e.target.value })
+              }
+              value={editUserData?.website}
+              className="ml-12 px-2 py-1 border-2"
             />
           </label>
         </div>

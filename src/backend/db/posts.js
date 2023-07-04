@@ -196,8 +196,8 @@ export const posts = [
     username: "adarshbalika",
     userUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687208699/userimage_u8ozxc.png",
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2022-07-04T11:02:17+05:30",
+    updatedAt: "2022-07-04T11:02:17+05:30",
     mediaUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1688212600/vacation_xx1hbq.jpg",
   },

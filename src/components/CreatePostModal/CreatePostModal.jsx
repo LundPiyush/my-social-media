@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import ImageIcon from "@mui/icons-material/Image";
+import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import { usePosts } from "../../context/posts-context";
 import { useAuth } from "../../context/auth-context";
+import data from "@emoji-mart/data";
+import Picker from "@emoji-mart/react";
 
 const CreatePostModal = ({ setModal }) => {
   const [postInput, setPostInput] = useState({
@@ -9,10 +12,12 @@ const CreatePostModal = ({ setModal }) => {
     mediaUrl: "",
   });
   const [postImage, setPostImage] = useState(null);
+  const [showEmojiModal, setShowEmojiModal] = useState(false);
   const { createPost } = usePosts();
   const {
     authState: { user },
   } = useAuth();
+
   const uploadMedia = async (media) => {
     const formData = new FormData();
 
@@ -44,7 +49,7 @@ const CreatePostModal = ({ setModal }) => {
     <div className="flex justify-center items-center bg-modal-background fixed inset-0 z-10">
       <div className="flex flex-col bg-white px-2 py-4 w-1/3">
         <div className="mb-2">
-          <p className="text-2xl">Create Post</p>
+          <p className="text-2xl">New Post</p>
         </div>
         <hr />
         <div className="flex flex-col justify-start items-start m-2 mt-4">
@@ -74,7 +79,7 @@ const CreatePostModal = ({ setModal }) => {
             </div>
           )}
         </div>
-        <div className="flex justify-around items-center mt-6">
+        <div className="flex justify-around mt-6 ml-6 items-center relative">
           <label>
             <ImageIcon className="hover:cursor-pointer" />
             <input
@@ -90,6 +95,30 @@ const CreatePostModal = ({ setModal }) => {
               }}
             />
           </label>
+          <div className="">
+            <InsertEmoticonIcon
+              className="hover:cursor-pointer ml-4"
+              onClick={() => setShowEmojiModal((prev) => !prev)}
+            />
+            <div className="z-10 absolute top-[120%] right-[15%]  overflow-y-scroll max-h-64">
+              {showEmojiModal && (
+                <Picker
+                  data={data}
+                  maxFrequentRows={4}
+                  previewPosition="none"
+                  navPosition="none"
+                  emojiButtonSize={28}
+                  emojiSize={20}
+                  onEmojiSelect={(emoji) => {
+                    setPostInput({
+                      ...postInput,
+                      content: postInput?.content + emoji.native,
+                    });
+                  }}
+                />
+              )}
+            </div>
+          </div>
           <button
             onClick={addPostClickHandler}
             className="bg-primary-color text-white shadow-md p-2 h-10 rounded-xl focus:cursor-pointer hover:bg-white hover:text-primary-color hover:border-primary-color hover:border">

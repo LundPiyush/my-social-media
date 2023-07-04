@@ -59,12 +59,12 @@ const Home = () => {
               <button
                 onClick={() => setSortbyLikes((prev) => !prev)}
                 className="border-2 px-2 py-1 rounded-lg border-gray-300">
-                🔥 Trending
+                {!sortbyLikes ? `🔥 Trending` : `🔥 Original`}
               </button>
               <button
                 onClick={() => setSortbyDate((prev) => !prev)}
                 className="border-2 px-2 py-1 rounded-lg border-gray-300">
-                Latest
+                {!sortbyDate ? `⭐️ Latest` : `⭐️ Former`}
               </button>
             </div>
             <Suggestion />
