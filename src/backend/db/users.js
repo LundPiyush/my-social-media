@@ -53,7 +53,7 @@ export const users = [
     password: "argentina123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    bio: "Argentina National Football Team",
+    bio: "Argentina Football Team",
     website: "https://en.wikipedia.org/wiki/Argentina_national_football_team",
     avatarUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1688208374/argentina3_logo_auratt.jpg",

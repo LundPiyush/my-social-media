@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useUsers } from "../../context/user-context";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Suggestion from "../../components/Suggestions/Suggestion";
@@ -64,7 +64,7 @@ const Profile = () => {
         <div className="flex justify-between h-calculate_nav">
           <Sidebar />
           <div className="flex flex-col gap-0 overflow-y-scroll w-[100%]">
-            <div className="flex border-2 m-auto p-4 my-3 gap-2 w-[60%] mx-auto xl:w-[70%] lg:w-[90%] lg:mx-8">
+            <div className="flex border-2  p-4 my-3 gap-2 w-[60%] mx-auto xl:w-[90%] lg:mx-8">
               <img
                 src={user?.avatarUrl}
                 className="rounded-full w-20 h-20"
@@ -92,10 +92,12 @@ const Profile = () => {
                     </button>
                   )}
                 </div>
-                <div className="flex justify-between items-center my-2">
-                  <p>{user?.bio}</p>
-                  <Link to={user?.website}>{user?.website}</Link>
-                  <div className="space-x-6">
+                <div className="flex justify-between items-start my-2">
+                  <div className="flex flex-col">
+                    <p>{user?.bio}</p>
+                    <p className="text-sm">{user?.website}</p>
+                  </div>
+                  <div className="">
                     {authState?.user?.username !== username ? (
                       <PersonRemoveIcon
                         fontSize="medium"
