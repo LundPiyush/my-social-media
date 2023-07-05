@@ -12,7 +12,6 @@ const EditModal = ({ user, setShowModal }) => {
     avatarUrl: user?.avatarUrl,
     website: user?.website,
   });
-  console.log(editUserData);
   const updateHandler = () => {
     editUser(editUserData);
     setShowModal({ type: "", modal: false });
@@ -66,7 +65,7 @@ const EditModal = ({ user, setShowModal }) => {
                 setEditUserData({ ...editUserData, bio: e.target.value })
               }
               value={editUserData?.bio}
-              className="ml-20 px-2 py-1 border-2"
+              className="ml-20 px-2 py-1 border-2 w-64 rounded-md"
             />
           </label>
         </div>
@@ -79,7 +78,7 @@ const EditModal = ({ user, setShowModal }) => {
                 setEditUserData({ ...editUserData, website: e.target.value })
               }
               value={editUserData?.website}
-              className="ml-12 px-2 py-1 border-2"
+              className="ml-12 px-2 py-1 border-2 w-64 rounded-md"
             />
           </label>
         </div>
