@@ -7,7 +7,7 @@ import { Oval } from "react-loader-spinner";
 
 const LIMIT = 3;
 const Explore = () => {
-  const [pageNo, setPageNo] = useState(1);
+  const [pageNo, setPageNo] = useState(0);
   const [pageInfo, setPageInfo] = useState(null);
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);

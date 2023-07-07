@@ -111,6 +111,7 @@ export const PostsProvider = ({ children }) => {
         deletePost,
         editPost,
         createPost,
+        postsDispatch,
       }}>
       {children}
     </PostsContext.Provider>

@@ -1,13 +1,19 @@
 import React from "react";
 
-const Comment = ({ commentData }) => {
-  const { _id, text, username } = commentData;
-  console.log(commentData);
+const Comment = ({ commentData, userComment }) => {
+  const { _id, text } = commentData;
+  const { avatarUrl, firstName, lastName } = userComment;
   return (
-    <div className="flex flex-col border-2 p-4 w-[60%] mx-auto xl:w-[70%] lg:w-[90%] lg:mx-7">
-      {_id}
-      {text} {username}
-    </div>
+    <>
+      <div className="flex flex-col w-[60%] mt-6 xl:w-[70%] lg:w-[90%] lg:mx-7">
+        <div className="flex gap-1 justify-start">
+          <img src={avatarUrl} className="h-8" alt={_id} />
+          <p className="font-bold">{firstName + " " + lastName}</p>
+        </div>
+        <p className="text-left m-2">{text}</p>
+      </div>
+      <hr />
+    </>
   );
 };
 

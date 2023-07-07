@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import verifiedicon from "../../assets/verifiedicon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
@@ -13,7 +13,6 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { purple } from "@mui/material/colors";
 import { useBookmark } from "../../context/bookmark-context";
 import EditPostModal from "../EditPostModal/EditPostModal";
-import { toast } from "react-toastify";
 
 const Post = (props) => {
   const {
@@ -29,6 +28,7 @@ const Post = (props) => {
   const [editPostModal, setEditPostModal] = useState(false);
   const { likePost, disLikePost, deletePost } = usePosts();
   const { authState } = useAuth();
+  const navigate = useNavigate();
   const { addToBookmark, postAlreadyInBookmarks, removeFromBookMark } =
     useBookmark();
 
@@ -138,7 +138,7 @@ const Post = (props) => {
           </button>
           <div className="flex items-center gap-1 hover:cursor-pointer">
             <ChatBubbleOutlineIcon
-              onClick={() => toast.success(`This feature is in progress`)}
+              onClick={() => navigate(`/post/${_id}`)}
               style={{ color: "gray", fontSize: "24px", paddingTop: "4px" }}
             />
             <span>{comments?.length}</span>
