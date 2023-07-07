@@ -17,6 +17,26 @@ export const posts = [
       dislikedBy: [],
     },
     username: "fabrizioromano",
+    comments: [
+      {
+        _id: "asjwindj_2718_jsjj_jqkwkn82",
+        username: "argentina",
+        text: "Great signing",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: "asjwindj_2198_jpjp_jqkwkn98",
+        username: "mancity",
+        text: "Legend",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
     userUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687208591/fabrizo_user_w32pz1.jpg",
     createdAt: formatDate(),
@@ -33,6 +53,17 @@ export const posts = [
       dislikedBy: [],
     },
     username: "fabrizioromano",
+    comments: [
+      {
+        _id: "asjwindj_2718_jsjj_jqkwkn82",
+        username: "argentina",
+        text: "Great signing",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
     userUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687208591/fabrizo_user_w32pz1.jpg",
     createdAt: formatDate(),
@@ -49,6 +80,17 @@ export const posts = [
       dislikedBy: [],
     },
     username: "mancity",
+    comments: [
+      {
+        _id: "asjwindj_2718_jsjj_jqkwkn82",
+        username: "argentina",
+        text: "Great signing",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
     userUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687210465/mancity_logo_ykygdy.jpg",
     createdAt: formatDate(),
@@ -66,6 +108,17 @@ export const posts = [
       dislikedBy: [],
     },
     username: "mancity",
+    comments: [
+      {
+        _id: "asjwindj_2718_jsjj_jqkwkn82",
+        username: "argentina",
+        text: "Great signing",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
     userUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687210465/mancity_logo_ykygdy.jpg",
     createdAt: formatDate(),
@@ -82,6 +135,17 @@ export const posts = [
       dislikedBy: [],
     },
     username: "mancity",
+    comments: [
+      {
+        _id: "asjwindj_2718_jsjj_jqkwkn82",
+        username: "argentina",
+        text: "Great signing",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
     userUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687210465/mancity_logo_ykygdy.jpg",
     createdAt: formatDate(),
@@ -98,6 +162,17 @@ export const posts = [
       dislikedBy: [],
     },
     username: "adarshbalika",
+    comments: [
+      {
+        _id: "asjwindj_2718_jsjj_jqkwkn82",
+        username: "argentina",
+        text: "Great signing",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
     userUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687208699/userimage_u8ozxc.png",
     createdAt: formatDate(),
@@ -114,6 +189,17 @@ export const posts = [
       dislikedBy: [],
     },
     username: "argentina",
+    comments: [
+      {
+        _id: "asjwindj_2718_jsjj_jqkwkn82",
+        username: "argentina",
+        text: "Great signing",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
     userUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1688207143/arg_logo_ohabqy.png",
     createdAt: formatDate(),
@@ -130,6 +216,17 @@ export const posts = [
       dislikedBy: [],
     },
     username: "argentina",
+    comments: [
+      {
+        _id: "asjwindj_2718_jsjj_jqkwkn82",
+        username: "argentina",
+        text: "Great signing",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
     userUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1688207143/arg_logo_ohabqy.png",
     createdAt: formatDate(),
@@ -146,6 +243,17 @@ export const posts = [
       dislikedBy: [],
     },
     username: "argentina",
+    comments: [
+      {
+        _id: "asjwindj_2718_jsjj_jqkwkn82",
+        username: "argentina",
+        text: "Great signing",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
     userUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1688207143/arg_logo_ohabqy.png",
     createdAt: formatDate(),
@@ -162,6 +270,17 @@ export const posts = [
       dislikedBy: [],
     },
     username: "argentina",
+    comments: [
+      {
+        _id: "asjwindj_2718_jsjj_jqkwkn82",
+        username: "argentina",
+        text: "Great signing",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
     userUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1688207143/arg_logo_ohabqy.png",
     createdAt: formatDate(),
@@ -178,6 +297,17 @@ export const posts = [
       dislikedBy: [],
     },
     username: "adarshbalika",
+    comments: [
+      {
+        _id: "asjwindj_2718_jsjj_jqkwkn82",
+        username: "argentina",
+        text: "Great signing",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
     userUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687208699/userimage_u8ozxc.png",
     createdAt: formatDate(),
@@ -194,6 +324,17 @@ export const posts = [
       dislikedBy: [],
     },
     username: "adarshbalika",
+    comments: [
+      {
+        _id: "asjwindj_2718_jsjj_jqkwkn82",
+        username: "argentina",
+        text: "Great signing",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
     userUrl:
       "https://res.cloudinary.com/dygxaue5x/image/upload/v1687208699/userimage_u8ozxc.png",
     createdAt: "2022-07-04T11:02:17+05:30",

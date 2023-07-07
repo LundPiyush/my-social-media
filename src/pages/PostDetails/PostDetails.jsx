@@ -3,25 +3,13 @@ import { useParams } from "react-router-dom";
 import Post from "../../components/Post/Post";
 import Suggestion from "../../components/Suggestions/Suggestion";
 import { usePosts } from "../../context/posts-context";
+import Comment from "../../components/Comment/Comment";
 
 const PostDetail = () => {
   const { postId } = useParams();
   const [post, setPost] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { postsData } = usePosts();
-
-  // const getPostData = async () => {
-  //   try {
-  //     setIsLoading(true);
-  //     const { status, data } = await getPostService(postId);
-  //     if (status === 200) {
-  //       setPost(data?.post);
-  //       setIsLoading(false);
-  //     }
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   useEffect(() => {
     setIsLoading(true);
@@ -40,6 +28,14 @@ const PostDetail = () => {
       <div className="flex gap-2">
         <div className="my-4 mx-auto min-w-[70%] max-w-[100%]">
           <Post {...post} />
+
+          <div className="my-4 mx-auto min-w-[70%] max-w-[100%]">
+            <div className="">
+              {post?.comments.map((comment) => (
+                <Comment key={comment._id} commentData={comment} />
+              ))}
+            </div>
+          </div>
         </div>
         <div className="min-w-[20rem] p-4 border-2 h-calculate_nav md:hidden">
           <Suggestion />

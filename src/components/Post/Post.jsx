@@ -16,7 +16,16 @@ import EditPostModal from "../EditPostModal/EditPostModal";
 import { toast } from "react-toastify";
 
 const Post = (props) => {
-  const { _id, content, likes, username, createdAt, mediaUrl, userUrl } = props;
+  const {
+    _id,
+    content,
+    likes,
+    username,
+    createdAt,
+    mediaUrl,
+    userUrl,
+    comments,
+  } = props;
   const [editPostModal, setEditPostModal] = useState(false);
   const { likePost, disLikePost, deletePost } = usePosts();
   const { authState } = useAuth();
@@ -132,7 +141,7 @@ const Post = (props) => {
               onClick={() => toast.success(`This feature is in progress`)}
               style={{ color: "gray", fontSize: "24px", paddingTop: "4px" }}
             />
-            <span>12</span>
+            <span>{comments?.length}</span>
           </div>
         </div>
       </div>

@@ -16,6 +16,32 @@ export const getAllpostsHandler = function () {
 };
 
 /**
+ * This handler handles gets posts in the db.
+ * send GET Request at /api/posts/:limit/:page
+ * */
+export const getPostsByPageLimit = function (schema, request) {
+  let { page, limit } = request.params || {};
+  page = Number(page);
+  limit = Number(limit);
+
+  const startIndex = limit * (page - 1);
+  const endIndex = limit * page;
+
+  const DBposts = [...this.db.posts];
+  const totalPages = Math.ceil(DBposts.length / limit);
+  const pagenatedPost = DBposts.slice(startIndex, endIndex);
+
+  return new Response(
+    200,
+    {},
+    {
+      posts: pagenatedPost,
+      info: { totalProducts: DBposts.length, totalPages },
+    }
+  );
+};
+
+/**
  * This handler gets post by postId in the db.
  * send GET Request at /api/posts/:postId
  * */

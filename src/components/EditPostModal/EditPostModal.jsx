@@ -22,7 +22,7 @@ const EditPostModal = ({ post, setEditPostModal }) => {
           <img
             src={post?.mediaUrl}
             alt={post?.username}
-            className=" h-[20rem] w-[20rem] object-contain"
+            className="w-[20rem] object-contain"
           />
         </div>
         <div className="flex">
