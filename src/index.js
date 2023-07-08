@@ -10,6 +10,7 @@ import { PostsProvider } from "./context/posts-context";
 import { UsersProvider } from "./context/user-context";
 import { BookmarkProvider } from "./context/bookmark-context";
 import { CommentProvider } from "./context/comment-context";
+import { ThemeProvider } from "./context/theme-context";
 
 // Call make Server
 makeServer();
@@ -18,17 +19,19 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthProvider>
-        <PostsProvider>
-          <UsersProvider>
-            <BookmarkProvider>
-              <CommentProvider>
-                <App />
-              </CommentProvider>
-            </BookmarkProvider>
-          </UsersProvider>
-        </PostsProvider>
-      </AuthProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <PostsProvider>
+            <UsersProvider>
+              <BookmarkProvider>
+                <CommentProvider>
+                  <App />
+                </CommentProvider>
+              </BookmarkProvider>
+            </UsersProvider>
+          </PostsProvider>
+        </AuthProvider>
+      </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

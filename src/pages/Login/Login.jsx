@@ -67,18 +67,20 @@ const Login = () => {
           </div>
           <div className="flex flex-col">
             <button
-              className="bg-yellow-100 my-4 py-2"
+              className="bg-primary-color my-4 py-2 dark:font-bold"
               onClick={guestLoginHandler}>
               Guest Login
             </button>
-            <button className="bg-orange-100 my-2 py-2" onClick={loginHandler}>
+            <button
+              className="bg-primary-color my-2 py-2 dark:font-bold"
+              onClick={loginHandler}>
               Login
             </button>
             <div className="flex justify-evenly mt-4">
               Don't have an Account?
               <Link
                 to="/signup"
-                className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
+                className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600 dark:text-white">
                 Create One
               </Link>
             </div>

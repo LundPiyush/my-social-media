@@ -41,8 +41,8 @@ const PostDetail = () => {
   };
   return (
     <div>
-      <div className="flex gap-2">
-        <div className="my-4 mx-auto min-w-[70%] max-w-[100%]">
+      <div className="flex gap-2 h-calculate_nav overflow-hidden">
+        <div className="my-4 mx-auto min-w-[70%] max-w-[100%] overflow-y-scroll scroll-hidden">
           <Post {...post} />
           <div className="flex flex-col border-2 p-4 w-[60%] mx-auto xl:w-[70%] lg:w-[90%] lg:mx-7">
             <div className="flex gap-2">
@@ -50,14 +50,14 @@ const PostDetail = () => {
                 placeholder="Add comment"
                 onChange={(e) => setCommentInput(e.target.value)}
                 value={commentInput}
-                className="w-[100%] h-10 border-gray-200 border-2 rounded-md px-4 focus-visible:outline-primary-color"
+                className="w-[100%] h-10 border-gray-200 border-2 rounded-md px-4 focus-visible:outline-primary-color dark:text-dark-mode"
               />
 
               <button onClick={() => addCommentHandler()}>
                 <SendIcon fontSize="large" />
               </button>
             </div>
-            {post?.comments.map((comment) => {
+            {post?.comments?.map((comment) => {
               const userComment = users?.find(
                 (user) => user?.username === comment?.username
               );

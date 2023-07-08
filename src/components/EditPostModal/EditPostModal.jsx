@@ -13,7 +13,7 @@ const EditPostModal = ({ post, setEditPostModal }) => {
   };
   return (
     <div className="flex justify-center items-center  bg-modal-background fixed inset-0 z-10">
-      <div className="flex flex-col bg-white px-2 py-4 overflow-y-scroll max-h-[38rem]">
+      <div className="flex flex-col bg-white px-2 py-4 overflow-y-scroll max-h-[38rem] dark:bg-dark-mode dark:text-white">
         <div className="mb-2">
           <p className="text-2xl">Edit Post</p>
         </div>
@@ -29,7 +29,7 @@ const EditPostModal = ({ post, setEditPostModal }) => {
           <textarea
             type="text"
             className="w-full h-[10rem]
-            px-4 border-2 m-6"
+            px-4 border-2 m-6 dark:text-dark-mode"
             value={editPostData?.content}
             onChange={(e) =>
               setEditPostData({ ...editPostData, content: e.target.value })

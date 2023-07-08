@@ -28,7 +28,7 @@ const Bookmark = () => {
               ))}
             </div>
           ) : (
-            <p className="text-3xl text-primary-color m-auto">
+            <p className="text-3xl text-primary-color m-auto dark:text-white">
               No post added to Bookmark yet!
             </p>
           )}

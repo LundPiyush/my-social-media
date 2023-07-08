@@ -15,7 +15,7 @@ import RequireAuth from "./components/RequireAuth/RequireAuth";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App dark:bg-dark-mode dark:text-white">
       <ToastContainer position="bottom-right" autoClose={1500} draggable />
       <Nav />
       <Routes>

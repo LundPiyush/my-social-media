@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: "class",
   theme: {
     screens: {
       "2xl": { max: "1535px" },
@@ -23,6 +24,7 @@ module.exports = {
       colors: {
         "primary-color": "var(--primary-color)",
         "modal-background": "var(--modal-background-color)",
+        "dark-mode": "var(--dark-mode)",
       },
       boxShadow: {
         "2xl": "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;",

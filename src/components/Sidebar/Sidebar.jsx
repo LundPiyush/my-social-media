@@ -12,12 +12,12 @@ const Sidebar = () => {
     <>
       {modal ? <CreatePostModal setModal={setModal} /> : <></>}
       <div className="flex flex-col border-r-2 min-h-screen">
-        <div className="flex flex-col sticky md:flex-row md:justify-evenly md:fixed md:w-full md:min-h-0 md:bottom-0 md:z-20 md:pt-2.5 md:items-end bg-white">
+        <div className="flex flex-col dark:bg-black sticky md:flex-row md:justify-evenly md:fixed md:w-full md:min-h-0 md:bottom-0 md:z-20 md:pt-2.5 md:items-end bg-white">
           <NavLink
             to="/"
             className="flex space-x-2 py-4 px-8 hover:bg-primary-color hover:text-white sm:flex-col sm:items-center">
             <HomeIcon />
-            <p>Home</p>
+            <p className="">Home</p>
           </NavLink>
           <NavLink
             to="/explore"

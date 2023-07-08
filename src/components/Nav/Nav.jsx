@@ -1,19 +1,30 @@
 import React, { useState } from "react";
 import { useAuth } from "../../context/auth-context";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import userimage from "../../assets/userimage.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchModal from "../SearchModal/SearchModal";
+import { useTheme } from "../../context/theme-context";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
+
 const Nav = () => {
   const { authState } = useAuth();
   const [showSearchModal, setShowSearchModal] = useState(false);
   const [searchText, setSearchText] = useState("");
+  const { isDarkMode, setIsDarkMode } = useTheme();
+  const navigate = useNavigate();
+
   const toggleHandler = () => {};
   return (
-    <div className="flex justify-between items-center sticky top-0 z-10 shadow-xl border-b-2 bg-white">
+    <div className="flex justify-between items-center sticky top-0 z-10 shadow-xl border-b-2">
       <div className="flex items-center mx-10">
         <MenuIcon onClick={() => toggleHandler()} className="cursor-pointer" />
-        <p className="text-2xl ml-2">OneSocial</p>
+        <p
+          className="text-2xl ml-2 hover:cursor-pointer"
+          onClick={() => navigate("./")}>
+          OneSocial
+        </p>
       </div>
       <div className="relative">
         <input
@@ -36,7 +47,13 @@ const Nav = () => {
           />
         ) : null}
       </div>
-
+      <button onClick={() => setIsDarkMode((prev) => !prev)}>
+        {!isDarkMode ? (
+          <LightModeIcon></LightModeIcon>
+        ) : (
+          <DarkModeIcon></DarkModeIcon>
+        )}
+      </button>
       <Link
         to={
           authState?.isLoggedIn
@@ -44,7 +61,7 @@ const Nav = () => {
             : "/login"
         }
         className="self-center mx-4 my-4">
-        <span className="bg-blue-500">
+        <span className="">
           {authState?.isLoggedIn ? (
             <img
               src={authState?.user?.avatarUrl}
@@ -53,7 +70,12 @@ const Nav = () => {
               className="rounded-full"
             />
           ) : (
-            <img src={userimage} alt="Adarsh" width={40} />
+            <img
+              src={userimage}
+              alt="Adarsh"
+              width={40}
+              className="rounded-full"
+            />
           )}
         </span>
       </Link>

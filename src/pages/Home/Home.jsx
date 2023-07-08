@@ -49,7 +49,7 @@ const Home = () => {
             {userFeed.length > 0 ? (
               userFeed?.map((post) => <Post {...post} key={post?._id} />)
             ) : (
-              <p className="text-3xl my-auto text-primary-color">
+              <p className="text-3xl my-auto text-primary-color dark:text-white">
                 Please follow someone or post something!
               </p>
             )}
