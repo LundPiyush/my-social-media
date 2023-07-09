@@ -68,7 +68,7 @@ export const BookmarkProvider = ({ children }) => {
       getAllBookmarks();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authState?.token]);
+  }, [authState?.token, bookmarkData]);
   return (
     <BookmarkContext.Provider
       value={{

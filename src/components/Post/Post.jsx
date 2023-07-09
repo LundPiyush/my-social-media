@@ -88,7 +88,13 @@ const Post = (props) => {
                   fontSize="small"
                   onClick={() => setEditPostModal((prev) => !prev)}
                 />
-                <DeleteIcon fontSize="small" onClick={() => deletePost(_id)} />
+                <DeleteIcon
+                  fontSize="small"
+                  onClick={() => {
+                    removeFromBookMark(_id);
+                    deletePost(_id);
+                  }}
+                />
               </div>
             ) : null}
 

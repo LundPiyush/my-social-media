@@ -14,7 +14,7 @@ const SearchModal = ({ searchText, setShowSearchModal, setSearchText }) => {
   return (
     <div className="absolute inset-0 z-10 top-10">
       <button
-        className="absolute right-16 top-2"
+        className="absolute right-16 top-2 dark:text-dark-mode"
         onClick={() => setShowSearchModal(false)}>
         ╳
       </button>
@@ -28,7 +28,7 @@ const SearchModal = ({ searchText, setShowSearchModal, setSearchText }) => {
                 setSearchText("");
               }}
               key={filterUser?._id}
-              className="flex justify-between p-2 border-2 border-gray-200 rounded-md ml-[2%] mr-[8%] bg-white hover:cursor-pointer">
+              className="flex justify-between p-2 border-2 border-gray-200 rounded-md ml-[2%] mr-[8%] bg-white hover:cursor-pointer dark:text-dark-mode">
               <div className="flex gap-2">
                 <img
                   src={filterUser?.avatarUrl}
@@ -46,7 +46,7 @@ const SearchModal = ({ searchText, setShowSearchModal, setSearchText }) => {
       ) : searchText?.length > 0 ? (
         <div
           to="/"
-          className="flex justify-between p-2 border-2 border-gray-200 rounded-md ml-[2%] mr-[8%] bg-white">
+          className="flex justify-between p-2 border-2 border-gray-200 rounded-md ml-[2%] mr-[8%] bg-white dark:text-dark-mode">
           No user found
         </div>
       ) : null}

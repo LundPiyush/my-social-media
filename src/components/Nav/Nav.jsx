@@ -29,7 +29,7 @@ const Nav = () => {
       <div className="relative">
         <input
           type="text"
-          className="border border-solid border-gray-300 rounded-l-full w-[38rem] lg:w-[25rem] md:w-[15rem] py-2 px-5 "
+          className="border border-solid border-gray-300 rounded-l-full w-[38rem] lg:w-[25rem] md:w-[15rem] py-2 px-5 dark:text-dark-mode focus-visible:outline-gray-300"
           placeholder="Search User"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}

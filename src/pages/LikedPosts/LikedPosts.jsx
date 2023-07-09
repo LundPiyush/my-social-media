@@ -10,9 +10,6 @@ const LikedPosts = () => {
   const {
     postsData: { posts },
   } = usePosts();
-  //   const currentUser = usersData?.users?.find(
-  //     ({ _id }) => _id === authState?.user?._id
-  //   );
   const likedPosts = posts?.filter(({ likes }) => {
     return likes?.likedBy?.find(
       ({ username }) => username === authState?.user?.username
