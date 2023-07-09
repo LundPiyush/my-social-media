@@ -34,7 +34,6 @@ const CreatePostModal = ({ setModal }) => {
         }
       );
       const data = await res.json();
-      console.log(data);
       return data;
     } catch (e) {
       return console.error(e);
@@ -47,14 +46,14 @@ const CreatePostModal = ({ setModal }) => {
   };
   return (
     <div className="flex justify-center items-center bg-modal-background fixed inset-0 z-10">
-      <div className="flex flex-col bg-white px-2 py-4 w-1/3">
+      <div className="flex flex-col bg-white px-2 py-4 w-1/3 dark:bg-dark-mode">
         <div className="mb-2">
           <p className="text-2xl">New Post</p>
         </div>
         <hr />
         <div className="flex flex-col justify-start items-start m-2 mt-4">
           <textarea
-            className="border w-full h-40 p-4 shadow-lg rounded-md outline-none"
+            className="border w-full h-40 p-4 shadow-lg rounded-md outline-none dark:bg-dark-mode"
             placeholder="What's on your mind?"
             value={postInput.content}
             onChange={(e) =>
