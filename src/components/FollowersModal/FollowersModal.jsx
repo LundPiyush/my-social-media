@@ -6,7 +6,7 @@ const FollowersModal = ({ user, setShowModal, type }) => {
   const { followers, following } = getProfileCount(user);
   return (
     <div className="flex justify-center items-center  bg-modal-background fixed inset-0 z-10">
-      <div className="flex flex-col bg-white px-2 py-4 min-w-[20rem]">
+      <div className="flex flex-col bg-white px-2 py-4 min-w-[20rem] dark:bg-dark-mode">
         <div className="mb-2 flex ">
           <p className="text-xl capitalize mx-auto">
             {type === "FOLLOWERS" ? "Followers List" : "Following List"}

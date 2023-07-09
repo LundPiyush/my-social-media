@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useAuth } from "../../context/auth-context";
 import { Link, useNavigate } from "react-router-dom";
 import userimage from "../../assets/userimage.png";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchModal from "../SearchModal/SearchModal";
 import { useTheme } from "../../context/theme-context";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
@@ -15,11 +14,9 @@ const Nav = () => {
   const { isDarkMode, setIsDarkMode } = useTheme();
   const navigate = useNavigate();
 
-  const toggleHandler = () => {};
   return (
     <div className="flex justify-between items-center sticky top-0 z-10 shadow-xl border-b-2">
       <div className="flex items-center mx-10">
-        <MenuIcon onClick={() => toggleHandler()} className="cursor-pointer" />
         <p
           className="text-2xl ml-2 hover:cursor-pointer"
           onClick={() => navigate("./")}>

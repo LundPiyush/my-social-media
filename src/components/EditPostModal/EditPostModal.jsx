@@ -29,7 +29,7 @@ const EditPostModal = ({ post, setEditPostModal }) => {
           <textarea
             type="text"
             className="w-full h-[10rem]
-            px-4 border-2 m-6 dark:text-dark-mode"
+            px-4 border-2 m-6 dark:text-white dark:bg-dark-mode rounded-lg focus-visible:outline-none"
             value={editPostData?.content}
             onChange={(e) =>
               setEditPostData({ ...editPostData, content: e.target.value })

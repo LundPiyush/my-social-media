@@ -22,7 +22,7 @@ const LikedPosts = () => {
           <Sidebar />
           <div className="flex flex-col gap-0 overflow-y-scroll w-[100%]">
             {likedPosts.length === 0 ? (
-              <p className="text-3xl my-auto text-primary-color">
+              <p className="text-3xl my-auto text-primary-color dark:text-white">
                 You've not liked any posts yet !!!
               </p>
             ) : (

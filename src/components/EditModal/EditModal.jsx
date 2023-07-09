@@ -18,7 +18,7 @@ const EditModal = ({ user, setShowModal }) => {
   };
   return (
     <div className="flex justify-center items-center bg-modal-background fixed inset-0 z-10">
-      <div className="flex flex-col bg-white px-2 py-4 w-1/4">
+      <div className="flex flex-col bg-white px-2 py-4 w-1/4 dark:bg-dark-mode">
         <div className="mb-2">
           <p className="text-2xl">Edit Profile</p>
         </div>
@@ -65,7 +65,7 @@ const EditModal = ({ user, setShowModal }) => {
                 setEditUserData({ ...editUserData, bio: e.target.value })
               }
               value={editUserData?.bio}
-              className="ml-20 px-2 py-1 border-2 w-64 rounded-md"
+              className="ml-20 px-2 py-1 border-2 w-64 rounded-md dark:bg-dark-mode"
             />
           </label>
         </div>
@@ -78,7 +78,7 @@ const EditModal = ({ user, setShowModal }) => {
                 setEditUserData({ ...editUserData, website: e.target.value })
               }
               value={editUserData?.website}
-              className="ml-12 px-2 py-1 border-2 w-64 rounded-md"
+              className="ml-12 px-2 py-1 border-2 w-64 rounded-md dark:bg-dark-mode"
             />
           </label>
         </div>
