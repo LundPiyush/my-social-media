@@ -46,7 +46,7 @@ const Explore = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNo]);
-  console.log("pageNo", pageNo, "toalPages", pageInfo?.totalPages);
+
   return (
     <>
       <div className="h-calculate_nav overflow-hidden">

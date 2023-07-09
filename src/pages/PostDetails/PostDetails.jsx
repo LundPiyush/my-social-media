@@ -19,7 +19,6 @@ const PostDetail = () => {
   const {
     usersData: { users },
   } = useUsers();
-
   useEffect(() => {
     setIsLoading(true);
     if (postId && postsData?.posts) {
@@ -27,7 +26,7 @@ const PostDetail = () => {
       setIsLoading(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [postsData?.posts]);
+  }, [postsData?.posts, post]);
   if (isLoading) {
     return <h1>loading......</h1>;
   }
