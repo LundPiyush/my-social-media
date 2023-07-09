@@ -117,20 +117,19 @@ const SignUp = () => {
           />
         </div>
         <div className="flex flex-col">
-          <button className="bg-orange-100 my-2 py-2" onClick={() => {}}>
+          <button className="bg-orange-100 my-2 py-2 dark:bg-primary-color font-bold">
             Signup
           </button>
           <div className="flex justify-around">
             <p>Already have an Account?</p>
             <Link
               to="/login"
-              className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
+              className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600 dark:hover:text-white">
               LogIn here
             </Link>
           </div>
         </div>
       </form>
-      <p></p>
     </div>
   );
 };

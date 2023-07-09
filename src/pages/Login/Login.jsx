@@ -26,7 +26,7 @@ const Login = () => {
     loginUser(guessUserDetails);
   };
   return (
-    <>
+    <div className="flex flex-col">
       <h1 className="text-3xl my-[5%]">Login</h1>
       <div className="flex justify-center gap-6">
         <form className="flex flex-col gap-6 py-14 px-10 border-solid border-2 border-indigo-60 shadow-xl rounded-md">
@@ -67,12 +67,12 @@ const Login = () => {
           </div>
           <div className="flex flex-col">
             <button
-              className="bg-primary-color my-4 py-2 dark:font-bold"
+              className="bg-primary-color my-4 py-2 font-bold text-white"
               onClick={guestLoginHandler}>
               Guest Login
             </button>
             <button
-              className="bg-primary-color my-2 py-2 dark:font-bold"
+              className="bg-primary-color my-2 py-2 font-bold text-white"
               onClick={loginHandler}>
               Login
             </button>
@@ -87,7 +87,7 @@ const Login = () => {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 
