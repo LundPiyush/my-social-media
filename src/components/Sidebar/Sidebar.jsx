@@ -8,18 +8,24 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CreatePostModal from "../CreatePostModal/CreatePostModal";
 const Sidebar = () => {
   const [modal, setModal] = useState(false);
+  const getActiveStyle = ({ isActive }) => ({
+    backgroundColor: isActive ? "#a020f0" : "",
+    color: isActive ? "#fff" : "",
+  });
   return (
     <>
       {modal ? <CreatePostModal setModal={setModal} /> : <></>}
       <div className="flex flex-col border-r-2 min-h-screen">
         <div className="flex flex-col dark:bg-black sticky md:flex-row md:justify-evenly md:fixed md:w-full md:min-h-0 md:bottom-0 md:z-20 md:pt-2.5 md:items-end bg-white">
           <NavLink
+            style={getActiveStyle}
             to="/"
-            className="flex space-x-2 py-4 px-8 hover:bg-primary-color hover:text-white sm:flex-col sm:items-center">
+            className="flex space-x-2 py-4 px-8 hover:bg-primary-color hover:text-white sm:flex-col sm:items-center {getActiveStyle}">
             <HomeIcon />
             <p className="">Home</p>
           </NavLink>
           <NavLink
+            style={getActiveStyle}
             to="/explore"
             className="flex space-x-2 py-4 px-8 hover:bg-primary-color hover:text-white sm:flex-col sm:items-center">
             <ExploreIcon />
@@ -30,12 +36,14 @@ const Sidebar = () => {
             <p>Add</p>
           </NavLink>
           <NavLink
+            style={getActiveStyle}
             to="/bookmarks"
             className="flex space-x-2 py-4 px-8 hover:bg-primary-color hover:text-white sm:flex-col sm:items-center">
             <BookmarkIcon />
             <p>Bookmarks</p>
           </NavLink>
           <NavLink
+            style={getActiveStyle}
             to="/liked-posts"
             className="flex py-4 px-8 hover:bg-primary-color hover:text-white sm:flex-col sm:items-center">
             <FavoriteIcon />
