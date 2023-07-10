@@ -10,6 +10,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
 import EditModal from "../../components/EditModal/EditModal";
 import FollowersModal from "../../components/FollowersModal/FollowersModal";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const { username } = useParams();
@@ -95,7 +96,12 @@ const Profile = () => {
                 <div className="flex justify-between items-start my-2">
                   <div className="flex flex-col">
                     <p>{user?.bio}</p>
-                    <p className="text-sm">{user?.website}</p>
+                    <Link
+                      className="text-sm underline"
+                      to={`${user?.website}`}
+                      target="_blank">
+                      website
+                    </Link>
                   </div>
                   <div className="">
                     {authState?.user?.username !== username ? (
