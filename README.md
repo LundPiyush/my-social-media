@@ -1,4 +1,4 @@
-# Trend-wave
+# One Social
 
 [One Social](https://lund-piyush-social-media.netlify.app/) - A social media app where you can connect with your friends and family and share pictures.
 
